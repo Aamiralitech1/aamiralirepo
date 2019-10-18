@@ -1,0 +1,32 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Food App</title>
+  </head>
+  <link rel='stylesheet' href="{% static 'food/style.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <body>
+    <nav class="navbar navbar-dark bg-dark">
+      <a href="#" class="navbar-brand">FoodApp</a>
+
+      <div class="navbar">
+        <a class="nav-item nav-link" href="{% url 'food:create_item' %}">AddItem</a>
+        <a class="nav-item nav-link" href="#">DelteItem</a>
+        <a class="nav-item nav-link" href="#">ViewItem</a>
+      </div>
+    </nav>
+    {% if messages %}
+    {% for msg in messages %}
+      {{msg}}
+      {% endfor %}
+    {% endif %}
+
+    {% block body %}
+
+    {% endblock %}
+
+  </body>
+</html>
